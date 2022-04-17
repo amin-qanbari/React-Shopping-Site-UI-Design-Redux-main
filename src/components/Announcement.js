@@ -9,6 +9,7 @@ align-items: center;
 justify-content: center;
 font-size: 14px;
 font-weight: 500;
+margin-top: 64px;
 
 @media (max-width: 768px) {
     font-size: 12px;
