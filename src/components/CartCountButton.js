@@ -23,14 +23,14 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 2.4rem;
+  top: 2.3rem;
   right: 1.5rem;
   cursor: pointer;
   z-index: 100000;
   @media (max-width:380px) {
     width: 25px;
     height: 25px;
-    top: 2.6rem;
+    top: 2.3rem;
     border-radius: 8px;
   }
 `;
