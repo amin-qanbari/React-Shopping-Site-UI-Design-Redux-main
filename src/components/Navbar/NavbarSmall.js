@@ -7,16 +7,19 @@ import { ArrowDropDown } from "@material-ui/icons";
 import styled from "styled-components";
 import DropdownSmallItems from "./DropdownSmallItems";
 
-
 const Ul = styled.ul`
+overflow-y: scroll;
+-webkit-overflow-scrolling: touch;
   width: 100%;
   height: 100%;
   display: none;
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: -20px;
   right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 110;
   padding-top: 50px;
   background-color: #111;
@@ -35,44 +38,47 @@ const Ul = styled.ul`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    width: 100%;
+    min-width: 100%;
     &:hover {
       background-color: #ccc;
       color: black;
     }
-   svg {
-     position: fixed;
-     top: 137px;
-   }
+    svg{
+        position: absolute;
+        left: 40%;
+    }
   }
 
-  .dropdown {
+  .dropdowns {
     display: flex;
     flex-direction: column;
+    li{
+        width: 100%;
+    }
   }
 `;
 
-const NavbarSmall = ({open , close}) => {
-    const [dropdown, setDropdown] = useState(false);
-    const dropdownHandler = () => {
-      setDropdown(!dropdown);
-    };
-    return (
-      <div>
-        <Ul open={open} dropdown={dropdown}>
-          <li onClick={close}>صفحه اصلی</li>
-          <li className="dropdown" onClick={dropdownHandler}>
-            <div>
-              محصولات
-              <ArrowDropDown />
-            </div>
-            <DropdownSmallItems dropdown={dropdown} />
-          </li>
-          <li onClick={close}>ورود</li>
-          <li onClick={close}>ثبت نام</li>
-        </Ul>
-      </div>
-    );
+const NavbarSmall = ({ open, close }) => {
+  const [dropdown, setDropdown] = useState(false);
+  const dropdownHandler = () => {
+    setDropdown(!dropdown);
+  };
+  return (
+    <div>
+      <Ul open={open} dropdown={dropdown}>
+        <li onClick={close}>صفحه اصلی</li>
+        <li className="dropdowns" onClick={dropdownHandler}>
+          <div>
+            <ArrowDropDown />
+            محصولات
+          </div>
+          <DropdownSmallItems dropdown={dropdown} />
+        </li>
+        <li onClick={close}>ورود</li>
+        <li onClick={close}>ثبت نام</li>
+      </Ul>
+    </div>
+  );
 };
 
 export default NavbarSmall;
