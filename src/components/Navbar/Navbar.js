@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { mobile } from "../../responsive";
 
 //material UI
-import { Search, Dehaze } from "@material-ui/icons";
+import { Search, ArrowDropDown } from "@material-ui/icons";
 
 //styled components
 import styled from "styled-components";
@@ -13,6 +13,80 @@ import { setSearchContext } from "../../Context/SearchContextProvider";
 
 //css
 import "./navbar.css";
+import Burger from "./Burger";
+
+const Nav = styled.nav`
+  height: 55px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0.3rem 0rem;
+  background-color: #24292f;
+  z-index: 1000;
+  color: #f1f1f1;
+
+  .dropdown {
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      ul {
+        display: flex;
+      }
+    }
+
+    svg {
+      position: absolute;
+    }
+  }
+
+  .dropdown ul {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    overflow: hidden;
+    color: #000;
+    display: ${({ dropdown }) => (dropdown ? "flex" : "none")};
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
+    
+
+    li {
+      width: 100%;
+      display: none;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      a{
+        color: black;
+      }
+      &:hover {
+        background-color: #111;
+        opacity: 0.5;
+        display: flex;
+        a{
+        color: #fff;
+        }
+      }
+
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+`;
 
 const SearchContainer = styled.div`
   direction: rtl;
@@ -23,22 +97,25 @@ const SearchContainer = styled.div`
   background-color: #fff;
   margin-left: 1rem;
   padding: 6px;
-  ${mobile({height : "13px" })}
+  ${mobile({ height: "13px" })}
 `;
 
 const Input = styled.input`
   border: none;
   outline: none;
-  ${mobile({ width: "90px" , height : "15px" , fontSize:"12px" })}
+  ${mobile({ width: "90px", height: "15px", fontSize: "12px" })}
 `;
-
 
 const Navbar = () => {
   const setSearchTerm = useContext(setSearchContext);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const dropdownHandler = () => {
+    setDropdown(!dropdown);
+  };
 
   return (
-    <nav className="navigation">
+    <Nav className="navigation" dropdown={dropdown}>
       <SearchContainer>
         <Input
           placeholder="جستجو"
@@ -47,14 +124,8 @@ const Navbar = () => {
         />
         <Search style={{ color: "gray", fontSize: 16 }} />
       </SearchContainer>
-      <button
-        className="hamburger"
-        onClick={() => {
-          setIsNavExpanded(!isNavExpanded);
-        }}
-      >
-        <Dehaze/>
-      </button>
+
+      <Burger />
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
@@ -74,27 +145,32 @@ const Navbar = () => {
           <li>
             <Link to="/register">ثبت نام</Link>
           </li>
-          <li>
-            <Link to="/allProducts">تمام محصولات</Link>
-          </li>
-          <li className="li-none">
-            <Link to="/summer">اجناس تابستانی</Link>
-          </li>
-          <li className="li-none">
-            <Link to="/autumn">بافت</Link>
-          </li>
-          <li className="li-none">
-            <Link to="/t-shirt">تی شرت</Link>
-          </li>
-          <li className="li-none">
-            <Link to="/shirt">پیراهن</Link>
-          </li>
-          <li className="li-none">
-            <Link to="/nightwear">لباس خواب</Link>
+          <li onClick={dropdownHandler} className="dropdown">
+            <div>
+              محصولات
+              <ArrowDropDown />
+              <ul>
+                <li className="li-none">
+                  <Link to="/summer">اجناس تابستانی</Link>
+                </li>
+                <li className="li-none">
+                  <Link to="/autumn">بافت</Link>
+                </li>
+                <li className="li-none">
+                  <Link to="/t-shirt">تی شرت</Link>
+                </li>
+                <li className="li-none">
+                  <Link to="/shirt">پیراهن</Link>
+                </li>
+                <li className="li-none">
+                  <Link to="/nightwear">لباس خواب</Link>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>
-    </nav>
+    </Nav>
   );
 };
 
