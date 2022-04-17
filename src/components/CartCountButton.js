@@ -22,9 +22,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 2.3rem;
-  right: 1.5rem;
+  position: absolute;
+  top: 19px;
+  right: 60px;
   cursor: pointer;
   z-index: 100000;
   @media (max-width:380px) {
