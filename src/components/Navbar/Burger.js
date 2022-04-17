@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 //styled-components
 import styled from "styled-components";
-import NavbarSmall from './NavbarSmall';
+import CartCountButton from "../CartCountButton";
+import NavbarSmall from "./NavbarSmall";
 
 const Div = styled.div`
   display: none;
@@ -10,10 +11,10 @@ const Div = styled.div`
   height: 1.8rem;
   position: absolute;
   top: 20px;
-  right: 47px;
+  right: 20px;
   z-index: 200;
   cursor: pointer;
-  
+
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-around;
@@ -23,7 +24,7 @@ const Div = styled.div`
     width: 28px;
     height: 28px;
     right: 38px;
-   }
+  }
   div {
     width: 1.9rem;
     height: 0.23rem;
@@ -44,33 +45,31 @@ const Div = styled.div`
     @media (max-width: 380px) {
       width: 1.5rem;
       height: 0.2rem;
-    transform-origin: 0px;
-
-  
-
-     }
+      transform-origin: -0.7px;
+    }
   }
 `;
 
 const Burger = () => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const openHandler = () => {
     setOpen(!open);
   };
 
   const closeHandler = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
   return (
     <div>
-        <Div open={open} onClick={openHandler}>
+      <CartCountButton/>
+      <Div open={open} onClick={openHandler}>
         <div></div>
         <div></div>
         <div></div>
       </Div>
-      <NavbarSmall open={open} close={closeHandler}/>
+      <NavbarSmall open={open} close={closeHandler} />
     </div>
-  )
-}
+  );
+};
 
-export default Burger
+export default Burger;
