@@ -14,14 +14,19 @@ import { setSearchContext } from "../../Context/SearchContextProvider";
 //css
 import "./navbar.css";
 import Burger from "./Burger";
+import CartCountButton from "../CartCountButton";
 
 const Nav = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 55px;
-  max-width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  /* position: relative; */
   padding: 0.3rem 0rem;
   background-color: #24292f;
   z-index: 1000;
@@ -56,7 +61,6 @@ const Nav = styled.nav`
     justify-content: center;
     align-items: center;
     width: 130px;
-    
 
     li {
       width: 100%;
@@ -66,18 +70,17 @@ const Nav = styled.nav`
       align-items: center;
       justify-content: center;
       padding: 10px 0;
-      a{
+      a {
         color: black;
       }
       &:hover {
         background-color: #111;
         opacity: 0.5;
         display: flex;
-        a{
-        color: #fff;
+        a {
+          color: #fff;
         }
       }
-
     }
 
     div {
@@ -136,6 +139,7 @@ const Navbar = () => {
             setIsNavExpanded(!isNavExpanded);
           }}
         >
+          <CartCountButton />
           <li>
             <Link to="/">صفحه اصلی</Link>
           </li>
