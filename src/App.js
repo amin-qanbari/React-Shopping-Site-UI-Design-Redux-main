@@ -15,8 +15,6 @@ import Shirt from "./pages/Shirt";
 import LightJacket from "./pages/LightJacket";
 import ProductDetail from "./pages/ProductDetail";
 import AllProducts from "./components/AllProducts";
-import CartCountButton from "./components/CartCountButton";
-
 import SearchContextProvider from "./Context/SearchContextProvider";
 
 //react-router-dom
@@ -28,7 +26,6 @@ function App() {
     <div className="App">
         <SearchContextProvider>
       <Navbar/>
-      <CartCountButton/>
       
       <Routes>
         <Route path="/" element={<Home />} />
