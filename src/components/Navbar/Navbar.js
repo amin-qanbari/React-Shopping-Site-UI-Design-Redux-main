@@ -28,7 +28,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   /* position: relative; */
   padding: 0.3rem 0rem;
-  background-color: #24292f;
+  background-color:  #24292f;
   z-index: 1000;
   color: #f1f1f1;
 
@@ -69,7 +69,8 @@ const Nav = styled.nav`
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 0;
+      padding: 20px 0;
+      height: 0;
       a {
         color: black;
       }
@@ -78,7 +79,7 @@ const Nav = styled.nav`
         opacity: 0.5;
         display: flex;
         a {
-          color: #fff;
+          color: #f1f1f1;
         }
       }
     }
@@ -113,9 +114,6 @@ const Navbar = () => {
   const setSearchTerm = useContext(setSearchContext);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-  const dropdownHandler = () => {
-    setDropdown(!dropdown);
-  };
 
   return (
     <Nav className="navigation" dropdown={dropdown}>
@@ -129,7 +127,7 @@ const Navbar = () => {
       </SearchContainer>
 
       <Burger />
-      
+
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
@@ -140,7 +138,9 @@ const Navbar = () => {
             setIsNavExpanded(!isNavExpanded);
           }}
         >
+          <li>
             <CartCountButton />
+          </li>
           <li>
             <Link to="/">صفحه اصلی</Link>
           </li>
@@ -150,7 +150,7 @@ const Navbar = () => {
           <li>
             <Link to="/register">ثبت نام</Link>
           </li>
-          <li onClick={dropdownHandler} className="dropdown">
+          <li className="dropdown">
             <div>
               محصولات
               <ArrowDropDown />
