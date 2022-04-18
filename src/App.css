@@ -1,6 +1,8 @@
-.App{
-    /* max-width: 95%; */
-    margin-right: auto;
-    margin-left: auto;
-    /* padding: 0 1rem; */
+.App {
+  /* max-width: 95%; */
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #e5e3e0;
+
+  /* padding: 0 1rem; */
 }
