@@ -1,5 +1,9 @@
 //material ui
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  ArrowRightAlt,
+} from "@material-ui/icons";
 
 //responsive
 // import { mobile } from "../responsive";
@@ -13,15 +17,20 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
-  height: 80vh;
+  height: auto;
   display: flex;
   position: relative;
   overflow: hidden;
 
-  @media (max-width: 768px) {
-    height: 56vh;
+  @media (max-width: 992px) {
+    height: 70vh;
   }
-
+  @media (max-width: 768px) {
+    height: 50vh;
+  }
+  @media (max-width: 576px) {
+    height: 45vh;
+  }
 
   @media (max-width: 380px) {
     display: none;
@@ -29,9 +38,10 @@ const Container = styled.div`
 `;
 
 const Arrow = styled.div`
-  width: 50px;
-  height: 50px;
-  background-color: #fff7f7;
+  width: 40px;
+  height: 40px;
+  background-color: #6b706f;
+  color: #f1f1f1;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -45,6 +55,9 @@ const Arrow = styled.div`
   cursor: pointer;
   opacity: 0.5;
   z-index: 2;
+  &:hover {
+    background-color: #24292f;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -58,17 +71,16 @@ const Slide = styled.div`
   width: 100vw;
   display: flex;
   align-items: center;
-  /* background-color: #${(props) => props.bg}; */
-
-  @media (max-width: 768px) {
-    height: 50vh;
-  }
+  justify-content: space-around;
+  height: 100%;
 `;
 const ImgContainer = styled.div`
+  /* background-color: red; */
+
   /* height: 400px; */
   /* flex: 1; */
-  @media (max-width:576px) {
-    width: 40%;
+  @media (max-width: 576px) {
+    width: 43%;
   }
 `;
 
@@ -76,51 +88,53 @@ const Image = styled.img`
   width: 400px;
 
   @media (max-width: 992px) {
-    /* height: 30rem; */
-    width: 20rem;
+    height: 27rem;
+    width: 380px;
   }
 
   @media (max-width: 768px) {
-    width: 15rem;
-    /* height: 300px; */
+    width: 260px;
+    height: 280px;
   }
 
-  @media (max-width:576px) {
-    width: 13rem;
+  @media (max-width: 576px) {
+    width: 235px;
+    height: auto;
   }
 `;
 const InfoContainer = styled.div`
   width: 50%;
-  padding: 50px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
-  @media (max-width: 992px) {
-    padding: 40px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 30px;
-  }
-
-  @media (max-width : 576px) {
-    padding: 20px;
+  border-radius: 46px;
+  background: #e5e3e0;
+  box-shadow: -35px -35px 70px #d3d1ce, 35px 35px 70px #f7f5f2;
+  /* box-shadow: rgb(0 0 0 / 20%) 0px 5px 6px -3px,
+    rgb(0 0 0 / 14%) 0px 9px 12px 1px, rgb(0 0 0 / 12%) 0px 3px 16px 2px; */
+  border-radius: 12px;
+  @media (max-width: 576px) {
+    width: 45%;
+    justify-content: space-around;
+    box-shadow: none;
   }
 `;
 
 const Title = styled.h1`
   font-size: 2.1rem;
+  text-decoration: underline wavy;
+  text-underline-position: under;
   @media (max-width: 992px) {
     font-size: 1.7rem;
   }
 
   @media (max-width: 768px) {
-font-size: 1.3rem;
+    font-size: 1.3rem;
   }
 
-  @media (max-width : 576px) {
+  @media (max-width: 576px) {
     font-size: 1.1rem;
   }
 `;
@@ -130,50 +144,59 @@ const Desc = styled.p`
   font-weight: 500;
   /* letter-spacing: 3px; */
   @media (max-width: 992px) {
-font-size: 0.9rem;
-}
+    font-size: 0.9rem;
+  }
 
-@media (max-width: 768px) {
-font-size: 0.6rem;
-}
+  @media (max-width: 768px) {
+    font-size: 0.6rem;
+  }
 
-@media (max-width:576px) {
-  font-size: 0.5rem;
-}
+  @media (max-width: 576px) {
+    font-size: 0.5rem;
+  }
 `;
 const Linked = styled(Link)`
-  padding: 10px;
+  padding: 4px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
   color: black;
-  font-size: 20px;
+  font-size: 18px;
   background-color: transparent;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
   cursor: pointer;
   transition: all 0.15s ease;
-  border-radius: 4px;
+  border-radius: 48px;
   font-weight: 500;
 
+  div {
+    display: flex;
+    align-items: center;
+    margin-left: 3px;
+  }
+
   &:hover {
-    background-color: #fc6a67;
+    background-color: #24292f;
     color: white;
   }
 
   @media (max-width: 992px) {
     font-size: 18px;
     padding: 8px;
-}
+  }
 
-@media (max-width: 768px) {
-  font-size: 16px;
-  padding: 6px;
-}
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 6px;
+  }
 
-@media (max-width: 576px) {
-  font-size: 12px;
-  padding: 4px;
-}
-
-
+  @media (max-width: 576px) {
+    font-size: 12px;
+    padding: 4px;
+  }
 `;
 
 const Slider = () => {
@@ -211,6 +234,9 @@ const Slider = () => {
                 }
               >
                 نمایش بیشتر
+                <div>
+                  <ArrowRightAlt />
+                </div>
               </Linked>
             </InfoContainer>
           </Slide>
