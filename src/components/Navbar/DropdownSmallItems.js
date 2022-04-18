@@ -8,8 +8,14 @@ const Ul = styled.ul`
   display: ${({ dropdown }) => (dropdown ? "block" : "none")};
   background-color: ${({ dropdown }) => (dropdown ? "#ccc" : "")};
   li {
-    width: 100%;
+    width: 119vw;
+    /* padding-top: 20px; */
     color: #000 !important;
+    background-color: #111;
+    color: #fff !important;
+
+    /* opacity: .5; */
+
 
     &:hover {
       background-color: #111 !important;
