@@ -23,8 +23,8 @@ const Div = styled.div`
   @media (max-width: 380px) {
     width: 28px;
     height: 28px;
-    right: 38px;
   }
+
   div {
     width: 1.9rem;
     height: 0.23rem;
@@ -50,6 +50,15 @@ const Div = styled.div`
   }
 `;
 
+const CartContainer = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+`
+
 const Burger = () => {
   const [open, setOpen] = useState(false);
   const openHandler = () => {
@@ -61,7 +70,9 @@ const Burger = () => {
   };
   return (
     <div>
-      <CartCountButton/>
+      <CartContainer>
+        <CartCountButton />
+      </CartContainer>
       <Div open={open} onClick={openHandler}>
         <div></div>
         <div></div>

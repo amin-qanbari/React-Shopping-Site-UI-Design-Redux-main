@@ -129,6 +129,7 @@ const Navbar = () => {
       </SearchContainer>
 
       <Burger />
+      
       <div
         className={
           isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
@@ -139,7 +140,7 @@ const Navbar = () => {
             setIsNavExpanded(!isNavExpanded);
           }}
         >
-          <CartCountButton />
+            <CartCountButton />
           <li>
             <Link to="/">صفحه اصلی</Link>
           </li>

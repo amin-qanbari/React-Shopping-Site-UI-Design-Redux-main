@@ -7,8 +7,6 @@ import styled from "styled-components";
 //react-router-dom
 import { useNavigate } from "react-router-dom";
 
-
-
 //useSelector
 import { useSelector } from "react-redux";
 
@@ -22,15 +20,18 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 19px;
-  right: 60px;
   cursor: pointer;
-  z-index: 100000;
-  @media (max-width:380px) {
+
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 19px;
+    right: 60px;
+  }
+  @media (max-width: 380px) {
     width: 25px;
     height: 25px;
-    top: 2.3rem;
+    top: 22px;
+    right: 56px;
     border-radius: 8px;
   }
 `;
