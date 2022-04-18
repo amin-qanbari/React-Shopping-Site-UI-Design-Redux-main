@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 
 //material ui icons
-import { ArrowDropDown } from "@material-ui/icons";
+import { Home , ExitToApp , AssignmentInd } from "@material-ui/icons";
 
 //styled-components
 import styled from "styled-components";
-import DropdownSmallItems from "./DropdownSmallItems";
+import { Link } from "react-router-dom";
 
 const Ul = styled.ul`
-overflow-y: scroll;
--webkit-overflow-scrolling: touch;
-  width: 100%;
+  direction: rtl;
+  width: 40%;
   height: 100%;
   display: none;
   flex-direction: column;
@@ -19,63 +18,69 @@ overflow-y: scroll;
   top: -20px;
   right: 0;
   bottom: 0;
-  left: 0;
+  /* left: 0; */
   z-index: 110;
   padding-top: 50px;
-  background-color: #111;
-  opacity: 0.9;
+  background-color: #fff;
+  /* opacity: 0.9; */
   transition: all 0.8s linear;
 
   @media (max-width: 768px) {
     display: ${({ open }) => (open ? "flex" : "none")};
   }
   li {
-    position: relative;
+right: 0;
     transition: background-color 0.1s linear;
-    padding: 20px 0;
-    color: #fff;
+    padding: 10px 0;
+    color: gray;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    min-width: 100%;
+    width: 100%;
+    a {
+      cursor: pointer;
+      font-size: 14px;
+      user-select: none;
+      vertical-align: middle;
+      color: inherit;
+      font-weight: 600;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: relative;
+      text-decoration: none;
+      width: 100%;
+      padding: 8px 16px;
+      transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    }
     &:hover {
       background-color: #ccc;
       color: black;
     }
-    svg{
-        position: absolute;
-        left: 40%;
+    svg {
+      padding-left: 10px;
     }
   }
 
-  .dropdowns {
-    display: flex;
-    flex-direction: column;
-    li{
-        width: 100%;
-    }
-  }
 `;
 
 const NavbarSmall = ({ open, close }) => {
   const [dropdown, setDropdown] = useState(false);
-  const dropdownHandler = () => {
-    setDropdown(!dropdown);
-  };
+
   return (
     <div>
       <Ul open={open} dropdown={dropdown}>
-        <li onClick={close}>صفحه اصلی</li>
-        <li className="dropdowns" onClick={dropdownHandler}>
-          <div>
-            <ArrowDropDown />
-            محصولات
-          </div>
-          <DropdownSmallItems dropdown={dropdown} />
+        <li onClick={close}>
+          <Link to="/"> <Home/>صفحه اصلی</Link>
         </li>
-        <li onClick={close}>ورود</li>
-        <li onClick={close}>ثبت نام</li>
+        <li onClick={close}>
+          <Link to="/login"><ExitToApp/> ورود</Link>
+        </li>
+        <li onClick={close}>
+        <Link to="/login"><AssignmentInd/>ثبت نام</Link>
+
+        </li>
       </Ul>
     </div>
   );
