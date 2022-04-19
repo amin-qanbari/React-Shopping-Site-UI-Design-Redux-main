@@ -23,7 +23,9 @@ import { useDispatch, useSelector } from "react-redux";
 //cart action
 import { checkout, clear } from "../Redux/Cart/cartAction";
 
-const Container = styled.div``;
+const Container = styled.div`
+margin-bottom: 50px;
+`;
 
 const Wrapper = styled.div`
   padding: 20px;
