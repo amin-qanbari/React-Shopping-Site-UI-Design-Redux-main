@@ -24,7 +24,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { checkout, clear } from "../Redux/Cart/cartAction";
 
 const Container = styled.div`
-  margin-bottom: 50px;
+  margin: 45px 0 30px 0;
+  @media (max-width:380px) {
+    margin: 55px 0 30px 0;
+  }
 `;
 
 const Wrapper = styled.div`
