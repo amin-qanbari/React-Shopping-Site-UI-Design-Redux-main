@@ -21,12 +21,11 @@ const Nav = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-  height: 55px;
+  height: 65px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* position: relative; */
   padding: 0.3rem 0rem;
   background-color:  #24292f;
   z-index: 1000;
@@ -113,7 +112,7 @@ const Input = styled.input`
 const Navbar = () => {
   const setSearchTerm = useContext(setSearchContext);
   const [isNavExpanded, setIsNavExpanded] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
+  const [dropdown] = useState(false);
 
   return (
     <Nav className="navigation" dropdown={dropdown}>
