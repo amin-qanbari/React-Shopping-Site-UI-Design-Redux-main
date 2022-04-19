@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 //material ui
-import { KeyboardArrowUp , Send} from "@material-ui/icons";
+import { Send} from "@material-ui/icons";
 
 const Container = styled.div`
   height: 60vh;
@@ -111,46 +111,7 @@ const Button = styled.button`
   align-items: center;
 `;
 
-const A = styled.a`
-  background-color: #d5d5d5;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-  transition: all 0.2s ease;
 
-  &:hover:before {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &:before {
-    content: attr(data-hover);
-    visibility: hidden;
-    opacity: 0;
-    width: 80px;
-    background-color: #cecece;
-    color: #fff;
-    font-size: 10px;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px;
-    transition: opacity 0.2s ease-in-out;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 110%;
-  }
-
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
 
 const Newsletter = () => {
   return (
@@ -160,9 +121,7 @@ const Newsletter = () => {
         <Input placeholder=" ایمیل خود را وارد کنید" />
         <Button><Send/></Button>
       </InputContainer>
-      <A href="#top" data-hover="پرش به بالا">
-        <KeyboardArrowUp />
-      </A>
+
     </Container>
   );
 };
