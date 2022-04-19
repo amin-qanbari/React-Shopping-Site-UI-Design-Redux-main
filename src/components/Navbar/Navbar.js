@@ -100,13 +100,13 @@ const SearchContainer = styled.div`
   background-color: #fff;
   margin-left: 1rem;
   padding: 6px;
-  ${mobile({ height: "13px" })}
+  ${mobile({ height: "25px" })}
 `;
 
 const Input = styled.input`
   border: none;
   outline: none;
-  ${mobile({ width: "90px", height: "15px", fontSize: "12px" })}
+  ${mobile({ width: "100px", height: "15px", fontSize: "12px" })}
 `;
 
 const Navbar = () => {
