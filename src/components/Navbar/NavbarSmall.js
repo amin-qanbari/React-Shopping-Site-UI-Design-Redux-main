@@ -72,7 +72,7 @@ const Ul = styled.ul`
 `;
 
 const NavbarSmall = ({ open, close }) => {
-  const [dropdown, setDropdown] = useState(false);
+  const [dropdown] = useState(false);
 
   return (
     <div>
