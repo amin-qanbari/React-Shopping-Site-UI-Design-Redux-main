@@ -50,7 +50,8 @@ const Div = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 11px;
+
 `;
 
 const Div2 = styled.div`
