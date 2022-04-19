@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 //styled-components
 import styled from "styled-components";
+
+//components
 import CartCountButton from "../CartCountButton";
+import Backdrop from "./Backdrop";
 import NavbarSmall from "./NavbarSmall";
 
 const Div = styled.div`
@@ -79,6 +82,7 @@ const Burger = () => {
         <div></div>
       </Div>
       <NavbarSmall open={open} close={closeHandler} />
+      <Backdrop open={open} backdrop={openHandler}/>
     </div>
   );
 };
