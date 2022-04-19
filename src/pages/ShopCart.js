@@ -24,7 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { checkout, clear } from "../Redux/Cart/cartAction";
 
 const Container = styled.div`
-margin-bottom: 50px;
+  margin-bottom: 50px;
 `;
 
 const Wrapper = styled.div`
@@ -120,16 +120,36 @@ const SummaryTitle = styled.h1`
 `;
 
 const SummaryItem = styled.div`
-  margin: 30px 0px;
+  margin: 15px 0px;
   display: flex;
   justify-content: space-between;
   font-weight: ${(props) => props.type === "total" && "500"};
   font-size: ${(props) => props.type === "total" && "24px"};
 `;
 
-const SummaryItemText = styled.span``;
+const SummaryItemText = styled.span`
+  @media (max-width: 768px) {
+    font-size: ${(props) => props.type === "total" ? "22px" : "15px"};
+  }
+  @media (max-width: 576px) {
+    font-size: ${(props) => props.type === "total" ? "21px" : "14px"};
+  }
+  @media (max-width: 380px) {
+    font-size: ${(props) => props.type === "total" ? "18px" : "13px"};
+  }
+`;
 
-const SummaryItemPrice = styled.span``;
+const SummaryItemPrice = styled.span`
+  @media (max-width: 768px) {
+    font-size: ${(props) => props.type === "total" ? "22px" : "15px"};
+  }
+  @media (max-width: 576px) {
+    font-size: ${(props) => props.type === "total" ? "21px" : "14px"};
+  }
+  @media (max-width: 380px) {
+    font-size: ${(props) => props.type === "total" ? "18px" : "13px"};
+  }
+`;
 
 const Button = styled.button`
   width: 100%;
@@ -143,6 +163,9 @@ const Button = styled.button`
     transform: scale(1.01);
     font-size: 16px;
     background-color: green;
+  }
+  @media (max-width: 380px) {
+    font-size: 11px;
   }
 `;
 
@@ -256,8 +279,8 @@ const ShopCart = () => {
                 </SummaryItemPrice>
               </SummaryItem>
               <SummaryItem type="total">
-                <SummaryItemText>مبلغ پرداختی</SummaryItemText>
-                <SummaryItemPrice>
+                <SummaryItemText type="total">مبلغ پرداختی</SummaryItemText>
+                <SummaryItemPrice type="total">
                   {state.total - discount(state.total)} هزار تومان
                 </SummaryItemPrice>
               </SummaryItem>
