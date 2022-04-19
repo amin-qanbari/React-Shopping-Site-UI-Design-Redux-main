@@ -28,7 +28,7 @@ const Div = styled.div`
   div {
     width: 1.9rem;
     height: 0.23rem;
-    background-color: ${({ open }) => (open ? "#f1f1f1" : "#fff")};
+    background-color: ${({ open }) => (open ? "gray" : "#fff")};
     border-radius: 10px;
     transform-origin: 1.8px;
     transition: all 0.2s linear;
