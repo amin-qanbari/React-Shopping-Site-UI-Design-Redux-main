@@ -33,7 +33,7 @@ const Title = styled.h2`
   }
 `;
 const Container = styled.div`
-  padding: 20px;
+  padding:0px 20px 20px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
