@@ -21,20 +21,20 @@ import { addItem } from "../Redux/Cart/cartAction";
 const Container = styled.div``;
 
 const Wrapper = styled.div`
-  padding: 50px;
+  padding: 80px 50px 50px 50px;
   display: flex;
   @media (max-width: 992px) {
-    padding: 40px;
+    padding: 80px 40px 40px 40px;
   }
   @media (max-width: 768px) {
-    padding: 20px 0px;
+    padding: 80px 0px 20px 0;
   }
   @media (max-width: 576px) {
-    padding: 15px 0px;
+    padding: 30px 0px 15px 0;
     flex-direction: column;
   }
   @media (max-width: 380px) {
-    padding: 10px;
+    padding: 30px 10px 10px 10px;
     flex-direction: column;
   }
 `;
