@@ -16,7 +16,7 @@ const quantityCount = (state , id) => {
 
 const discount = (total) => {
     if(total > 50) {
-       return total * 0.2
+       return (total * 0.2).toFixed(1)
     }else {
         return 0
     }
