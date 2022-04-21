@@ -27,19 +27,19 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 30%;
+  width: 35%;
   padding: 20px;
   background-color: #fff;
   opacity: 0.9;
 
   @media (max-width:992px) {
-  width: 35%;
+  width: 40%;
 }
   @media (max-width:768px) {
-  width: 45%;
+  width: 50%;
 }
   @media (max-width:576px) {
-  width: 60%;
+  width: 65%;
 }
 
   @media (max-width: 380px) {
@@ -76,7 +76,7 @@ const Input = styled.input`
 const Button = styled.button`
   width: 40%;
   border: none;
-  padding: 15px 20px;
+  padding: 10px 20px;
   background-color: teal;
   color: white;
   font-size: 15px;
