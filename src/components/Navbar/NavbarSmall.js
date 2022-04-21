@@ -22,7 +22,12 @@ const Ul = styled.ul`
   background-color: #ffffff;
   transition: all 0.8s linear;
   margin-top: 20px;
-
+  @media (max-width:576px) {
+    width: 50%;
+  }
+  @media (max-width:380px) {
+    width: 55%;
+  }
   hr{
     margin: 0px;
     flex-shrink: 0;
