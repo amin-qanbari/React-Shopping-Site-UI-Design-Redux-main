@@ -14,11 +14,12 @@ const Container = styled.div`
   direction: rtl;
   width: 100vw;
   height: 100vh;
+  margin-top: 55px;
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url(${image}) center;
+    url(${image}) right;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -28,7 +29,8 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 30%;
   padding: 20px;
-  background-color: white;
+  background-color: #fff;
+  opacity: 0.9;
 
   @media (max-width:992px) {
   width: 35%;
@@ -41,7 +43,7 @@ const Wrapper = styled.div`
 }
 
   @media (max-width: 380px) {
-    width: 75%;
+    width: 85%;
   }
 `;
 
@@ -66,6 +68,9 @@ const Input = styled.input`
   &::placeholder{
     color: #111;
   }
+  @media (max-width: 380px) {
+   padding: 8px 10px;
+  }
 `;
 
 const Button = styled.button`
@@ -80,7 +85,8 @@ const Button = styled.button`
   border-radius: 2px;
 
   @media (max-width: 380px) {
-   font-size: 14px;
+   font-size: 12px;
+   padding: 6px 13px;
   }
   
 `;
