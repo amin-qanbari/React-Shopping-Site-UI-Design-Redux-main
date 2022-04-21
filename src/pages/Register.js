@@ -11,17 +11,18 @@ import { validate } from "../components/validate/validate";
 //toast
 import { notify } from "../components/validate/toast";
 
-import image from "../images/register.jpg"
+import image from "../images/register.jpg";
 
 const Container = styled.div`
-direction: rtl;
+  direction: rtl;
   width: 100vw;
   height: 100vh;
+  margin-top: 40px;
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
     ),
-    url(${image}) center;
+    url(${image}) right;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -31,36 +32,28 @@ direction: rtl;
 const Wrapper = styled.div`
   width: 40%;
   padding: 20px;
-  background-color: white;
+  background-color: #fff;
+  opacity: 0.9;
 
-  @media (max-width:992px) {
-  width: 60%;
-}
-  @media (max-width:768px) {
-  width: 70%;
-}
+  @media (max-width: 992px) {
+    width: 60%;
+  }
+  @media (max-width: 768px) {
+    width: 70%;
+  }
 
-@media (max-width:576px) {
-  width: 60%;
-}
+  @media (max-width: 576px) {
+    width: 60%;
+  }
 
-@media (max-width:380px) {
-  width: 75%;
-}
-
+  @media (max-width: 380px) {
+    width: 85%;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 24px;
-  font-weight: 300;
-  @media (max-width:576px) {
-  font-size: 18px;
-  font-weight: 700;
-}
-  @media (max-width:380px) {
-  font-size: 16px;
+  font-size: clamp(1rem, 1.8vw, 2.5rem);
   font-weight: 600;
-}
 `;
 
 const Form = styled.form`
@@ -71,6 +64,9 @@ const Form = styled.form`
 const Div = styled.div`
   display: flex;
   flex-direction: column;
+  @media (max-width: 576px) {
+    width: 100%;
+  }
 
   span {
     color: red;
@@ -84,48 +80,45 @@ const Input = styled.input`
   max-height: 15px;
   flex: 1;
   min-width: 50%;
-  margin: 20px 10px 0px 0px;
-  padding: 10px;
+  margin: 10px 10px 0px 0px;
+  padding: 13px 10px;
   border: 1.5px solid gray;
   border-radius: 3px;
+  font-size: clamp(0.7rem, 1.1vw, 2rem);
 
-  &::placeholder{
+  &::placeholder {
     color: #111;
   }
-  @media (max-width:576px) {
-  width: 95%;
-}
-@media (max-width:380px) {
- width: 80%;
-}
-
+  @media (max-width: 576px) {
+    width: 95%;
+  }
+  @media (max-width: 380px) {
+    width: 100%;
+    margin: 20px 0px 0px 0px;
+  }
 `;
 
 const Agreement = styled.span`
-  font-size: 12px;
-  margin: 20px 0px;
-  @media (max-width:576px) {
-  font-size: 13px;
-}
-
-@media (max-width:380px) {
-  font-size: 11px;
-}
+  font-size: clamp(0.7rem, 1.1vw, 2rem);
+  margin: 20px 5px;
+  text-align: justify;
 `;
 
 const Button = styled.button`
   width: 40%;
   border: none;
-  padding: 15px 20px;
+  padding: 10px 15px;
   background-color: teal;
   color: white;
   cursor: pointer;
-  @media (max-width:576px) {
-  width: 50%;
-}
-  @media (max-width:380px) {
-   width: 100%;
-}
+  font-size: clamp(0.7rem, 1.1vw, 2rem);
+
+  @media (max-width: 576px) {
+    width: 50%;
+  }
+  @media (max-width: 380px) {
+    width: 100%;
+  }
 `;
 
 const Register = () => {
@@ -178,10 +171,11 @@ const Register = () => {
       <Wrapper>
         <Title>ایجاد حساب کاربری</Title>
         <Form onSubmit={submitHandler}>
-        
           <Div>
             <Input
-             style={{border: errors.name && touched.name ? "1px solid red" : ""}}
+              style={{
+                border: errors.name && touched.name ? "1px solid red" : "",
+              }}
               placeholder="نام"
               type="text"
               name="name"
@@ -193,83 +187,100 @@ const Register = () => {
           </Div>
 
           <Div>
-          <Input
-           style={{border: errors.lastName && touched.lastName ? "1px solid red" : ""}}
-            placeholder="نام خانوادگی"
-            type="text"
-            name="lastName"
-            value={data.lastName}
-            onChange={changeHandler}
-            onFocus={touchedHandler}
-          />
-          {errors.lastName && touched.lastName && (
-            <span> {errors.lastName} </span>
-          )}
+            <Input
+              style={{
+                border:
+                  errors.lastName && touched.lastName ? "1px solid red" : "",
+              }}
+              placeholder="نام خانوادگی"
+              type="text"
+              name="lastName"
+              value={data.lastName}
+              onChange={changeHandler}
+              onFocus={touchedHandler}
+            />
+            {errors.lastName && touched.lastName && (
+              <span> {errors.lastName} </span>
+            )}
           </Div>
 
           <Div>
-          <Input
-            style={{border: errors.username && touched.username ? "1px solid red" : ""}}
-            placeholder="نام کاربری"
-            type="text"
-            name="username"
-            value={data.username}
-            onChange={changeHandler}
-            onFocus={touchedHandler}
-          />
-          {errors.username && touched.username && (
-            <span>{errors.username}</span>
-          )}
+            <Input
+              style={{
+                border:
+                  errors.username && touched.username ? "1px solid red" : "",
+              }}
+              placeholder="نام کاربری"
+              type="text"
+              name="username"
+              value={data.username}
+              onChange={changeHandler}
+              onFocus={touchedHandler}
+            />
+            {errors.username && touched.username && (
+              <span>{errors.username}</span>
+            )}
           </Div>
-        
+
           <Div>
-          <Input
-            style={{border: errors.email && touched.email ? "1px solid red" : ""}}
-            placeholder="ایمیل"
-            type="email"
-            name="email"
-            value={data.email}
-            onChange={changeHandler}
-            onFocus={touchedHandler}
-          />
-          {errors.email && touched.email && <span>{errors.email}</span>}
-          </Div> 
+            <Input
+              style={{
+                border: errors.email && touched.email ? "1px solid red" : "",
+              }}
+              placeholder="ایمیل"
+              type="email"
+              name="email"
+              value={data.email}
+              onChange={changeHandler}
+              onFocus={touchedHandler}
+            />
+            {errors.email && touched.email && <span>{errors.email}</span>}
+          </Div>
 
-            <Div>  
-          <Input
-            style={{border: errors.password && touched.password ? "1px solid red" : ""}}
-            placeholder="رمز عبور"
-            type="password"
-            name="password"
-            value={data.password}
-            onChange={changeHandler}
-            onFocus={touchedHandler}
-          />
-          {errors.password && touched.password && (
-            <span>{errors.password}</span>
-          )}
-          </Div> 
+          <Div>
+            <Input
+              style={{
+                border:
+                  errors.password && touched.password ? "1px solid red" : "",
+              }}
+              placeholder="رمز عبور"
+              type="password"
+              name="password"
+              value={data.password}
+              onChange={changeHandler}
+              onFocus={touchedHandler}
+            />
+            {errors.password && touched.password && (
+              <span>{errors.password}</span>
+            )}
+          </Div>
 
-          <Div>    
-          <Input
-             style={{border: errors.confirmPassword && touched.confirmPassword ? "1px solid red" : ""}}
-            placeholder="تکرار رمز عبور"
-            type="password"
-            name="confirmPassword"
-            value={data.confirmPassword}
-            onChange={changeHandler}
-            onFocus={touchedHandler}
-          />
-          {errors.confirmPassword && touched.confirmPassword && (
-            <span>{errors.confirmPassword}</span>
-          )}
-           </Div> 
+          <Div>
+            <Input
+              style={{
+                border:
+                  errors.confirmPassword && touched.confirmPassword
+                    ? "1px solid red"
+                    : "",
+              }}
+              placeholder="تکرار رمز عبور"
+              type="password"
+              name="confirmPassword"
+              value={data.confirmPassword}
+              onChange={changeHandler}
+              onFocus={touchedHandler}
+            />
+            {errors.confirmPassword && touched.confirmPassword && (
+              <span>{errors.confirmPassword}</span>
+            )}
+          </Div>
           <Agreement>
-            با ایجاد حساب کاربری، با پردازش اطلاعات شخصی خود مطابق با سیاست حفظ  <b>حریم خصوصی</b> موافقت می کنم.
+            با ایجاد حساب کاربری، با پردازش اطلاعات شخصی خود مطابق با سیاست حفظ{" "}
+            <b>حریم خصوصی</b> موافقت می کنم.
           </Agreement>
           <Button type="submit">ساختن حساب</Button>
         </Form>
-        <ToastContainer />
+        <ToastContainer style={{margin:"40px 15px 0 0"}} />
       </Wrapper>
     </Container>
   );
