@@ -84,7 +84,7 @@ const NavbarSmall = ({ open, close }) => {
           <Link to="/login"><ExitToApp/> ورود</Link>
         </li>
         <li onClick={close}>
-        <Link to="/login"><AssignmentInd/>ثبت نام</Link>
+        <Link to="/register"><AssignmentInd/>ثبت نام</Link>
 
         </li>
       <hr />
