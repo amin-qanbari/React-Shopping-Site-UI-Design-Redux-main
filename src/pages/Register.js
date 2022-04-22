@@ -16,8 +16,13 @@ import image from "../images/register.jpg";
 const Container = styled.div`
   direction: rtl;
   width: 100vw;
-  height: 100vh;
-  margin-top: 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 55px;
+  padding: 10px 0;
   background: linear-gradient(
       rgba(255, 255, 255, 0.5),
       rgba(255, 255, 255, 0.5)
@@ -35,11 +40,14 @@ const Wrapper = styled.div`
   background-color: #fff;
   opacity: 0.9;
 
+  @media (max-width: 1200px) {
+    width: 55%;
+  }
   @media (max-width: 992px) {
     width: 60%;
   }
   @media (max-width: 768px) {
-    width: 70%;
+    width: 68%;
   }
 
   @media (max-width: 576px) {
@@ -81,13 +89,18 @@ const Input = styled.input`
   flex: 1;
   min-width: 50%;
   margin: 10px 10px 0px 0px;
-  padding: 13px 10px;
+  padding: 13px 10px 13px 40px;
   border: 1.5px solid gray;
   border-radius: 3px;
   font-size: clamp(0.7rem, 1.1vw, 2rem);
 
   &::placeholder {
     color: #111;
+  }
+
+  @media (max-width: 768px) {
+  padding: 13px 10px 13px 20px;
+    
   }
   @media (max-width: 576px) {
     width: 95%;
@@ -280,7 +293,7 @@ const Register = () => {
           </Agreement>
           <Button type="submit">ساختن حساب</Button>
         </Form>
-        <ToastContainer style={{margin:"40px 15px 0 0"}} />
+        <ToastContainer className="toast" />
       </Wrapper>
     </Container>
   );
