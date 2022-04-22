@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 //material ui icons
-import { Home , ExitToApp , AssignmentInd } from "@material-ui/icons";
+import { Home, ExitToApp, AssignmentInd, ArrowLeft } from "@material-ui/icons";
 
 //styled-components
 import styled from "styled-components";
@@ -22,13 +22,13 @@ const Ul = styled.ul`
   background-color: #ffffff;
   transition: all 0.8s linear;
   margin-top: 20px;
-  @media (max-width:576px) {
+  @media (max-width: 576px) {
     width: 50%;
   }
-  @media (max-width:380px) {
+  @media (max-width: 380px) {
     width: 55%;
   }
-  hr{
+  hr {
     margin: 0px;
     flex-shrink: 0;
     border-width: 0px 0px thin;
@@ -36,6 +36,10 @@ const Ul = styled.ul`
     border-color: rgba(0, 0, 0, 0.12);
     z-index: 20000;
     width: 100%;
+  }
+
+  .open-product{
+
   }
 
   @media (max-width: 768px) {
@@ -49,7 +53,7 @@ const Ul = styled.ul`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    width:100%;
+    width: 100%;
     a {
       cursor: pointer;
       font-size: 14px;
@@ -67,32 +71,63 @@ const Ul = styled.ul`
       transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     }
     &:hover {
-      background-color: #F5F5F5;
+      background-color: #f5f5f5;
     }
     svg {
       padding-left: 10px;
     }
   }
-
 `;
 
 const NavbarSmall = ({ open, close }) => {
   const [dropdown] = useState(false);
+  const [openProduct, setOpenProduct] = useState(false);
 
   return (
     <div>
-      <Ul open={open} dropdown={dropdown}>
+      <Ul open={open} dropdown={dropdown} openProduct={openProduct}>
         <li onClick={close}>
-          <Link to="/"> <Home/>صفحه اصلی</Link>
+          <Link to="/">
+            {" "}
+            <Home />
+            صفحه اصلی
+          </Link>
+        </li>
+        <li className="open-product">
+            محصولات
+            <ArrowLeft className="iconDropdown" />
+          <div onClick={() => setOpenProduct(!openProduct)}>
+            <ul>
+              <li className="li-none">
+                <Link to="/summer">اجناس تابستانی</Link>
+              </li>
+              <li className="li-none">
+                <Link to="/autumn">بافت</Link>
+              </li>
+              <li className="li-none">
+                <Link to="/t-shirt">تی شرت</Link>
+              </li>
+              <li className="li-none">
+                <Link to="/shirt">پیراهن</Link>
+              </li>
+              <li className="li-none">
+                <Link to="/nightwear">لباس خواب</Link>
+              </li>
+            </ul>
+          </div>
         </li>
         <li onClick={close}>
-          <Link to="/login"><ExitToApp/> ورود</Link>
+          <Link to="/login">
+            <ExitToApp /> ورود
+          </Link>
         </li>
         <li onClick={close}>
-        <Link to="/register"><AssignmentInd/>ثبت نام</Link>
-
+          <Link to="/register">
+            <AssignmentInd />
+            ثبت نام
+          </Link>
         </li>
-      <hr />
+        <hr />
       </Ul>
     </div>
   );
