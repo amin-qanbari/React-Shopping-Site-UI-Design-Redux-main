@@ -33,21 +33,21 @@ const Title = styled.h2`
   }
 `;
 const Container = styled.div`
-  padding:0px 20px 20px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 0;
+  max-width: 1100px;
+  margin: 20px auto;
+
   @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
   }
-
   @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  @media (max-width: 576px) {
-  }
-
-  @media (max-width: 380px) {
-    padding: 0px 20px;
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
   }
 `;
 const PopularProducts = () => {

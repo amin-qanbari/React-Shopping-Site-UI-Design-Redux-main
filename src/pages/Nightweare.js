@@ -8,11 +8,24 @@ import Product from "../components/Product";
 import { nightWeare } from "../data";
 import styled from "styled-components";
 const Container = styled.div`
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 0;
+  max-width: 1100px;
+  margin: 40px auto;
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns:repeat(2, 1fr);
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 `;
+
 const Nightweare = () => {
   const searchTerm = useContext(searchContext);
 
