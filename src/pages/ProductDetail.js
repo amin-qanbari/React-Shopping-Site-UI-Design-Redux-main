@@ -11,14 +11,18 @@ import { mobile } from "../responsive";
 import { useParams } from "react-router-dom";
 
 //useSelector and useDispatch
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 //cartAction
-import { addItem } from "../Redux/Cart/cartAction";
+import { addItem, removeItem } from "../Redux/Cart/cartAction";
 
+//helper
+import { isInCart } from "../helper/function";
+import { CheckCircle } from "@material-ui/icons";
 
-
-const Container = styled.div``;
+const Container = styled.div`
+margin-top: 40px;
+`;
 
 const Wrapper = styled.div`
   padding: 80px 50px 50px 50px;
@@ -157,7 +161,38 @@ const AddContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: all 0.5s linear;
   ${mobile({ width: "100%" })}
+  div {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: teal;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    button {
+      width: 70%;
+      margin-top: 10px;
+      padding: 10px;
+      border: 2px solid red;
+      background-color: white;
+      cursor: pointer;
+      font-weight: 500;
+      @media (max-width:380px){
+        width: 60%;
+        font-size: 13px;
+      }
+
+      &:hover {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
 `;
 
 const Button = styled.button`
@@ -168,18 +203,19 @@ const Button = styled.button`
   font-weight: 500;
 
   &:hover {
-    background-color: #f8f4f4;
+    background-color: teal;
+    color: #fff;
   }
 `;
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
 
   const product = productList[id - 1];
   const { img, title, desc, price } = product;
-
-  console.log(product);
+  console.log(isInCart(state, product.id));
 
   return (
     <Container>
@@ -201,11 +237,21 @@ const ProductDetail = () => {
             </Filter>
           </FilterContainer>
           <AddContainer>
-            <Button
-              onClick={() => dispatch(addItem(product))}
-            >
-              افزودن به سبد خرید
-            </Button>
+            {!isInCart(state, product.id) ? (
+              <Button onClick={() => dispatch(addItem(product))}>
+                افزودن به سبد خرید
+              </Button>
+            ) : (
+              <div>
+                <span>به سبد خرید شما اضافه شد <CheckCircle/></span>
+                <button
+                  className="remove-btn"
+                  onClick={() => dispatch(removeItem(product))}
+                >
+                  حذف از سبد خرید
+                </button>
+              </div>
+            )}
           </AddContainer>
         </InfoContainer>
       </Wrapper>
