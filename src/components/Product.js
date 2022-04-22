@@ -40,8 +40,8 @@ const Info = styled.div`
 const Container = styled.div`
   flex: 1;
   margin: 55px 10px 10px 10px;
-  width: 280px;
-  height: 350px;
+  width: 215px;
+  height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,62 +54,23 @@ const Container = styled.div`
     border-radius: 2px;
   }
 
-  @media (max-width: 768px) {
-   height:300px ;
-  }
-
-  @media (max-width: 576px) {
-   height :250px ;
-   max-width: 300px;
-  }
-  @media (max-width: 380px) {
-    height: 230px;
-    max-width: none;
-  }
 `;
 
 const Circle = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   border-radius: 50%;
   background-color: white;
   position: absolute;
 
-  @media (max-width: 768px) {
-   width :180px ;
-   height: 180px;
-  }
-
-  @media (max-width: 576px) {
-   width:160px ;
-   height: 160px;
-  }
-
-  @media (max-width: 380px) {
-    width: 140px;
-    height: 140px;
-  }
 `;
 
 const Image = styled.img`
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   margin: 10px;
   z-index: 2;
-  @media (max-width: 768px) {
-  width: 180px;
-  height: 180px;
-  }
 
-  @media (max-width: 576px) {
-    width: 160px;
-    height: 160px;
-}
-
-@media (max-width: 380px) {
-  width  :140px ;
-  height: 140px;
-  }
 `;
 
 const Icon = styled.div`
