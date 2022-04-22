@@ -27,7 +27,7 @@ const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 0.3rem 0rem;
-  background-color:  #24292f;
+  background-color: #24292f;
   z-index: 1000;
   color: #f1f1f1;
 
@@ -127,11 +127,7 @@ const Navbar = () => {
 
       <Burger />
 
-      <div
-        className={
-          isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
-        }
-      >
+      <div className="navigation-menu">
         <ul
           onClick={() => {
             setIsNavExpanded(!isNavExpanded);
