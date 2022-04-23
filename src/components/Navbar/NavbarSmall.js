@@ -38,7 +38,56 @@ const Ul = styled.ul`
     width: 100%;
   }
 
-  .open-product{
+  .container-collapse {
+    width: 100%;
+  }
+
+  .wraper-collapse {
+    width: 95%;
+  }
+
+  .head-collapse {
+    display: flex;
+    padding-right: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+    svg {
+      margin-right: 5px;
+      transition: all 0.3s ease;
+      transform: ${(props) => (props.collapse ? "rotate(-90deg)" : "")};
+    }
+  }
+
+  .container-dropdown {
+  }
+
+  .wraper-dropdown {
+    transition: all 1s ease;
+    display: ${(props) => (props.collapse ? "block" : "none")};
+    transform: ${(props) =>
+      props.collapse ? "translateY(1px)" : "translateX(0)"};
+
+      ul{
+        margin-right: 15px;
+        li {
+          padding: 0;
+          color: gray;
+          width: 100%;
+      &::before {
+        width: 10px;
+        height: 1px;
+        content: "";
+        margin:0 5px 0 -10px;
+        background-color: #000080;
+      }
+      a{
+        font-size: 13px;
+        
+      }
+    }
+      }
 
   }
 
@@ -47,7 +96,7 @@ const Ul = styled.ul`
   }
   li {
     transition: background-color 0.1s linear;
-    padding: 10px 0;
+    padding: 5px 0;
     color: gray;
     display: flex;
     justify-content: center;
@@ -81,11 +130,11 @@ const Ul = styled.ul`
 
 const NavbarSmall = ({ open, close }) => {
   const [dropdown] = useState(false);
-  const [openProduct, setOpenProduct] = useState(false);
+  const [collapses, setCollapse] = useState(false);
 
   return (
     <div>
-      <Ul open={open} dropdown={dropdown} openProduct={openProduct}>
+      <Ul open={open} dropdown={dropdown} collapse={collapses}>
         <li onClick={close}>
           <Link to="/">
             {" "}
@@ -93,29 +142,38 @@ const NavbarSmall = ({ open, close }) => {
             صفحه اصلی
           </Link>
         </li>
-        <li className="open-product">
-            محصولات
-            <ArrowLeft className="iconDropdown" />
-          <div onClick={() => setOpenProduct(!openProduct)}>
-            <ul>
-              <li className="li-none">
-                <Link to="/summer">اجناس تابستانی</Link>
-              </li>
-              <li className="li-none">
-                <Link to="/autumn">بافت</Link>
-              </li>
-              <li className="li-none">
-                <Link to="/t-shirt">تی شرت</Link>
-              </li>
-              <li className="li-none">
-                <Link to="/shirt">پیراهن</Link>
-              </li>
-              <li className="li-none">
-                <Link to="/nightwear">لباس خواب</Link>
-              </li>
-            </ul>
+        <div className="container-collapse">
+          <div className="wraper-collapse">
+            <div
+              className="head-collapse"
+              onClick={() => setCollapse(!collapses)}
+            >
+              محصولات
+              <ArrowLeft className="icon-left" />
+            </div>
+            <div className="container-dropdown">
+              <div className="wraper-dropdown">
+                <ul>
+                  <li>
+                    <Link to="/summer">اجناس تابستانی</Link>
+                  </li>
+                  <li>
+                    <Link to="/autumn">بافت</Link>
+                  </li>
+                  <li>
+                    <Link to="/t-shirt">تی شرت</Link>
+                  </li>
+                  <li>
+                    <Link to="/shirt">پیراهن</Link>
+                  </li>
+                  <li>
+                    <Link to="/nightwear">لباس خواب</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </li>
+        </div>
         <li onClick={close}>
           <Link to="/login">
             <ExitToApp /> ورود
