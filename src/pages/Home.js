@@ -4,7 +4,7 @@ import Categories from '../components/Categories'
 import JumpToUp from '../components/JumpToUp'
 import Newsletter from '../components/Newsletter'
 import PopularProducts from '../components/PopularProducts'
-import Slider from '../components/Slider'
+import Slider from '../components/Slider/Slider'
 
 const Home = () => {
   return (

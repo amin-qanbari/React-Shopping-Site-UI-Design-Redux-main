@@ -12,7 +12,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 //data
-import { sliderItems } from "../data";
+import { sliderItems } from "../../data";
 
 //react-router-dom Link
 import { Link } from "react-router-dom";
