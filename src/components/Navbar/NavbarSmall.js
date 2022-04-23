@@ -167,19 +167,19 @@ const NavbarSmall = ({ open, close }) => {
               <div className="wraper-dropdown">
                 <ul>
                   <li>
-                    <Link to="/summer">اجناس تابستانی</Link>
+                    <Link to="/summer" onClick={close}>اجناس تابستانی</Link>
                   </li>
                   <li>
-                    <Link to="/autumn">بافت</Link>
+                    <Link to="/autumn" onClick={close}>بافت</Link>
                   </li>
                   <li>
-                    <Link to="/t-shirt">تی شرت</Link>
+                    <Link to="/t-shirt" onClick={close}>تی شرت</Link>
                   </li>
                   <li>
-                    <Link to="/shirt">پیراهن</Link>
+                    <Link to="/shirt" onClick={close}>پیراهن</Link>
                   </li>
                   <li>
-                    <Link to="/nightwear">لباس خواب</Link>
+                    <Link to="/nightwear" onClick={close}>لباس خواب</Link>
                   </li>
                 </ul>
               </div>
