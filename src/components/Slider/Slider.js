@@ -23,7 +23,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "./slider.css"
+import "./slider.css";
 
 const Container = styled.div``;
 
@@ -63,23 +63,26 @@ const Slide = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  @media (max-width:576px){
+  @media (max-width: 576px) {
     width: 100%;
   }
 `;
 const ImgContainer = styled.div`
   display: flex;
-  justify-content:center ;
+  justify-content: center;
   width: 50%;
-  @media (max-width: 576px) {
-  }
 `;
 
 const Image = styled.img`
   width: 400px;
 
+  @media (min-width: 992px) {
+    width: 380px;
+    height: auto;
+  }
   @media (max-width: 992px) {
     width: 380px;
+    height: auto;
   }
 
   @media (max-width: 768px) {
@@ -89,9 +92,7 @@ const Image = styled.img`
   @media (max-width: 576px) {
     width: 220px;
     padding: 0 10px;
-
   }
-
 `;
 const InfoContainer = styled.div`
   width: 50%;
@@ -180,7 +181,7 @@ const Linked = styled(Link)`
 
   @media (max-width: 992px) {
     font-size: 18px;
-    padding:6px 8px;
+    padding: 6px 8px;
   }
 
   @media (max-width: 768px) {
