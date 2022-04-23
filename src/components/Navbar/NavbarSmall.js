@@ -40,6 +40,11 @@ const Ul = styled.ul`
 
   .container-collapse {
     width: 100%;
+    padding: 13px 0;
+    &:hover{
+      background-color: #f5f5f5;
+
+    }
   }
 
   .wraper-collapse {
@@ -48,16 +53,19 @@ const Ul = styled.ul`
 
   .head-collapse {
     display: flex;
+    align-items: center;
     padding-right: 20px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     color: gray;
+    user-select: none;
     cursor: pointer;
     svg {
-      margin-right: 5px;
+      font-size: 16px;
       transition: all 0.3s ease;
       transform: ${(props) => (props.collapse ? "rotate(-90deg)" : "")};
     }
+
   }
 
   .container-dropdown {
@@ -70,20 +78,25 @@ const Ul = styled.ul`
       props.collapse ? "translateY(1px)" : "translateX(0)"};
 
       ul{
-        margin-right: 15px;
+        margin: 5px 15px 0 0;
         li {
           padding: 0;
           color: gray;
           width: 100%;
+          &:hover{
+            background-color: #fff;
+          }
       &::before {
-        width: 10px;
-        height: 1px;
-        content: "";
-        margin:0 5px 0 -10px;
-        background-color: #000080;
+        content: "-";
+        width: 12px;
+        color:#5b5d60 ;
+        font-weight: 600;
+        font-size: 20px;
+        margin:0 5px 0 -15px;
       }
       a{
-        font-size: 13px;
+        font-size: 12px;
+        color:#5b5d60 ;
         
       }
     }
@@ -105,9 +118,8 @@ const Ul = styled.ul`
     width: 100%;
     a {
       cursor: pointer;
-      font-size: 14px;
+      font-size: 12px;
       user-select: none;
-      vertical-align: middle;
       color: inherit;
       font-weight: 600;
       display: flex;
