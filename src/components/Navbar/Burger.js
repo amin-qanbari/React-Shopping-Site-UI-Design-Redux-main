@@ -14,7 +14,7 @@ const Div = styled.div`
   height: 1.8rem;
   position: absolute;
   top: 20px;
-  right: 20px;
+  right: ${({open}) => open ? "5px" : "20px"};
   z-index: 200;
   cursor: pointer;
 
