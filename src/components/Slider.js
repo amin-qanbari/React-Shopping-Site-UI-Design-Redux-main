@@ -13,7 +13,16 @@ import { useState } from "react";
 
 //data
 import { sliderItems } from "../data";
+
+//react-router-dom Link
 import { Link } from "react-router-dom";
+
+//swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const Container = styled.div`
   width: 100%;
@@ -75,10 +84,6 @@ const Slide = styled.div`
   height: 100%;
 `;
 const ImgContainer = styled.div`
-  /* background-color: red; */
-
-  /* height: 400px; */
-  /* flex: 1; */
   @media (max-width: 576px) {
     width: 43%;
   }
@@ -211,41 +216,57 @@ const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   return (
-    <Container>
-      <Arrow direction="left" onClick={() => handleClick("left")}>
-        <ArrowLeftOutlined />
-      </Arrow>
-      <Wrapper slideIndex={slideIndex}>
-        {sliderItems.map((item) => (
-          <Slide bg={item.bg} key={item.id}>
-            <ImgContainer>
-              <Image src={item.img} />
-            </ImgContainer>
-            <InfoContainer>
-              <Title>{item.title}</Title>
-              <Desc>{item.desc}</Desc>
-              <Linked
-                to={
-                  item.id === 1
-                    ? "/summer"
-                    : item.id === 2
-                    ? "/autumn"
-                    : "/nightwear"
-                }
-              >
-                نمایش بیشتر
-                <div>
-                  <ArrowRightAlt />
-                </div>
-              </Linked>
-            </InfoContainer>
-          </Slide>
-        ))}
-      </Wrapper>
-      <Arrow direction="right" onClick={() => handleClick("right")}>
-        <ArrowRightOutlined />
-      </Arrow>
-    </Container>
+    <Swiper
+      spaceBetween={30}
+      centeredSlides={true}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      modules={[Autoplay, Pagination, Navigation]}
+    >
+      <Container>
+        <Arrow direction="left" onClick={() => handleClick("left")}>
+          <ArrowLeftOutlined />
+        </Arrow>
+        <Wrapper slideIndex={slideIndex}>
+          {sliderItems.map((item) => (
+            <SwiperSlide key={item.id}>
+              <Slide bg={item.bg} key={item.id}>
+                <ImgContainer>
+                  <Image src={item.img} />
+                </ImgContainer>
+                <InfoContainer>
+                  <Title>{item.title}</Title>
+                  <Desc>{item.desc}</Desc>
+                  <Linked
+                    to={
+                      item.id === 1
+                        ? "/summer"
+                        : item.id === 2
+                        ? "/autumn"
+                        : "/nightwear"
+                    }
+                  >
+                    نمایش بیشتر
+                    <div>
+                      <ArrowRightAlt />
+                    </div>
+                  </Linked>
+                </InfoContainer>
+              </Slide>
+            </SwiperSlide>
+          ))}
+        </Wrapper>
+        <Arrow direction="right" onClick={() => handleClick("right")}>
+          <ArrowRightOutlined />
+        </Arrow>
+      </Container>
+    </Swiper>
   );
 };
 
