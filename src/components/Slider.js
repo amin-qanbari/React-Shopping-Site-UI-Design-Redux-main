@@ -23,28 +23,9 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "./slider.css"
 
-const Container = styled.div`
-  width: 100%;
-  height: auto;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-
-  @media (max-width: 992px) {
-    height: 70vh;
-  }
-  @media (max-width: 768px) {
-    height: 50vh;
-  }
-  @media (max-width: 576px) {
-    height: 45vh;
-  }
-
-  @media (max-width: 380px) {
-    display: none;
-  }
-`;
+const Container = styled.div``;
 
 const Arrow = styled.div`
   width: 40px;
@@ -77,15 +58,20 @@ const Wrapper = styled.div`
 `;
 
 const Slide = styled.div`
-  width: 100vw;
+  width: 90%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 100%;
+  @media (max-width:576px){
+    width: 100%;
+  }
 `;
 const ImgContainer = styled.div`
+  display: flex;
+  justify-content:center ;
+  width: 50%;
   @media (max-width: 576px) {
-    width: 43%;
   }
 `;
 
@@ -93,19 +79,19 @@ const Image = styled.img`
   width: 400px;
 
   @media (max-width: 992px) {
-    height: 27rem;
     width: 380px;
   }
 
   @media (max-width: 768px) {
     width: 260px;
-    height: 280px;
   }
 
   @media (max-width: 576px) {
-    width: 235px;
-    height: auto;
+    width: 220px;
+    padding: 0 10px;
+
   }
+
 `;
 const InfoContainer = styled.div`
   width: 50%;
@@ -121,9 +107,7 @@ const InfoContainer = styled.div`
     rgb(0 0 0 / 14%) 0px 9px 12px 1px, rgb(0 0 0 / 12%) 0px 3px 16px 2px; */
   border-radius: 12px;
   @media (max-width: 576px) {
-    width: 45%;
     justify-content: space-around;
-    box-shadow: none;
   }
 `;
 
@@ -142,22 +126,28 @@ const Title = styled.h1`
   @media (max-width: 576px) {
     font-size: 1.1rem;
   }
+
+  @media (max-width: 576px) {
+    font-size: 0.7rem;
+  }
 `;
 const Desc = styled.p`
   margin: 50px 0px;
   font-size: 1.2rem;
   font-weight: 500;
-  /* letter-spacing: 3px; */
   @media (max-width: 992px) {
     font-size: 0.9rem;
   }
 
   @media (max-width: 768px) {
+    margin: 40px 0px;
     font-size: 0.6rem;
   }
 
   @media (max-width: 576px) {
-    font-size: 0.5rem;
+    font-size: 0.55rem;
+    font-weight: 600;
+    margin: 30px 0px;
   }
 `;
 const Linked = styled(Link)`
@@ -190,17 +180,16 @@ const Linked = styled(Link)`
 
   @media (max-width: 992px) {
     font-size: 18px;
-    padding: 8px;
+    padding:6px 8px;
   }
 
   @media (max-width: 768px) {
     font-size: 16px;
-    padding: 6px;
   }
 
   @media (max-width: 576px) {
-    font-size: 12px;
-    padding: 4px;
+    font-size: 10px;
+    padding: 3px 8px;
   }
 `;
 
@@ -228,6 +217,7 @@ const Slider = () => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
+      className="swiper"
     >
       <Container>
         <Arrow direction="left" onClick={() => handleClick("left")}>
@@ -235,7 +225,7 @@ const Slider = () => {
         </Arrow>
         <Wrapper slideIndex={slideIndex}>
           {sliderItems.map((item) => (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={item.id} className="swiper-slide">
               <Slide bg={item.bg} key={item.id}>
                 <ImgContainer>
                   <Image src={item.img} />
